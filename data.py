@@ -15,7 +15,7 @@ def parse_csv(filename: str):
     for i, [x, y, vx, vy, r] in enumerate(map(lambda l: map(float, l.split(',')), lines)):
         pos[i] = [x, y]
         vel[i] = [vx, vy]
-        rad[i] = [r]
+        rad[i] = r
     return pos, vel, rad
 
 
