@@ -4,13 +4,10 @@ import numpy as np
 G = 6.674e-11
 
 
-def rotate(a: np.ndarray, n: int):
-    return np.concatenate(np.split(a, [n])[::-1])
-
-
 def rotations(a: np.ndarray):
+    a2 = np.concatenate((a, a))
     for i in range(1, len(a)):
-        yield rotate(a, i)
+        yield np.split(a2, [i, i + len(a)])[1]
 
 
 def n_body(pos: np.ndarray, vel: np.ndarray, mass: np.ndarray):
