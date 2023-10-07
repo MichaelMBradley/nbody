@@ -37,7 +37,7 @@ class Animator:
         self.ani = animation.FuncAnimation(
             self.fig,
             self.update,
-            interval=1000/120,
+            interval=1000 / (15 * 2 ** 4),
             init_func=self.setup_plot,
             blit=True,
             cache_frame_data=False
