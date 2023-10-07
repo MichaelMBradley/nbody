@@ -11,11 +11,11 @@ def parse_csv(filename: str):
         lines = file.read().strip().splitlines()
     pos = np.zeros((len(lines), 2))
     vel = np.zeros((len(lines), 2))
-    rad = np.zeros((len(lines),))
+    rad = np.zeros((len(lines), 1))
     for i, [x, y, vx, vy, r] in enumerate(map(lambda l: map(float, l.split(',')), lines)):
         pos[i] = [x, y]
         vel[i] = [vx, vy]
-        rad[i] = r
+        rad[i] = [r]
     return pos, vel, rad
 
 
