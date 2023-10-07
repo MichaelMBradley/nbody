@@ -11,7 +11,7 @@ def rotations(a: np.ndarray):
 
 
 def n_body(pos: np.ndarray, vel: np.ndarray, mass: np.ndarray):
-    for (o_pos, o_mass) in zip(rotations(pos), rotations(mass)):
+    for (o_pos, o_mass) in zip(rotations(pos), rotations(mass[:, np.newaxis])):
         dist = o_pos - pos
-        vel += G * (dist / np.linalg.norm(dist, axis=1)[:, np.newaxis]) * o_mass[:, np.newaxis] / np.sum(dist ** 2, axis=1)[:, np.newaxis]
+        vel += G * (dist / np.linalg.norm(dist, axis=1)[:, np.newaxis]) * o_mass / np.sum(dist ** 2, axis=1)[:, np.newaxis]
     pos += vel
