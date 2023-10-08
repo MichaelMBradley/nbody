@@ -73,7 +73,8 @@ class Animator:
                 self.pos[:, 1],
                 self.pos[:, 2],
                 c=self.colours,
-                s=self.rad * 10
+                s=self.rad * 10,
+                depthshade=False
             )
             self.ax.axis([-500, 500, -500, 500, -500, 500])
         return self.scat,
@@ -84,6 +85,7 @@ class Animator:
         self.scat.set_offsets(self.pos[:, :2])
         if d == 3:
             self.scat.set_3d_properties(self.pos[:, 2], 'z')
+            self.scat.set_sizes(self.rad[:, 0] * 10)
             self.fig.canvas.draw()
         return self.scat,
 
