@@ -3,7 +3,7 @@ import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 import numpy as np
 
-from physics import n_body
+from physics import n_body_matrix
 
 
 def parse_csv(filename: str):
@@ -54,7 +54,7 @@ class Animator:
         return self.scat,
 
     def update(self, *_args, **_kwargs):
-        n_body(self.pos, self.vel, self.mass)
+        n_body_matrix(self.pos, self.vel, self.mass)
         self.scat.set_offsets(self.pos)
         return self.scat,
 
