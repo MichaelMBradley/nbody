@@ -21,7 +21,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-f",
         "--filename",
-        default="data/simple.csv"
+        default="data/2d/simple.csv"
     )
     parser.add_argument(
         "-g",
