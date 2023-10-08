@@ -47,10 +47,10 @@ def n_body_matrix_constrained(pos: np.ndarray, vel: np.ndarray, mass: np.ndarray
         dist[i - 1] = pos2[i: i + len(pos)] - pos
         rot_mass[i - 1] = mass2[i: i + len(mass)]
 
-    a = np.linalg.norm(dist, axis=2)
-    a[a < close] = close
+    norms = np.linalg.norm(dist, axis=2)
+    norms[norms < close] = close
     vel += G * np.sum(
-        dist * rot_mass / (a ** 3)[:, :, np.newaxis],
+        dist * rot_mass / (norms ** 3)[:, :, np.newaxis],
         axis=0
     )
 
